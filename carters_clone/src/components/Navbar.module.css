@@ -4,6 +4,10 @@
     color:#444444;
  
  }
+ .head{
+    font-family:PoppinsRegular-AEM;
+     color:#444444;
+ }
  .support{
      font-size:14px;
      font-family:PoppinsRegular-AEM;
@@ -15,4 +19,15 @@
      color:#737373;
      text-decoration:underline;
      cursor:pointer
+ }
+ .primary2{
+    font-size:11px;
+    font-family:PoppinsRegular-AEM;
+    color:#444444;
+    margin-top:10px
+ }
+ .primary3{
+     font-size:18px;
+     font-family:PoppinsRegular-AEM;
+     color:#444444;
  }
