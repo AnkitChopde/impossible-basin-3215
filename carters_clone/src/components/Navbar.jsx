@@ -60,19 +60,19 @@ const Navbar = () => {
               <Flex mt={"6px"} spacing={4} justifyContent={"space-around"}>
                 <Flex>
                   <GrUserManager />
-                  <Link>Sign In</Link>
+                  <Link to="/signin">Sign In</Link>
                 </Flex>
                 <Flex>
                   <FiHeart />
-                  <Link>Hearts</Link>
+                  <Link to="/hearts">Hearts</Link>
                 </Flex>
                 <Flex>
                   <RxCodesandboxLogo />
-                  <Link>Orders</Link>
+                  <Link to="/orders">Orders</Link>
                 </Flex>
 
                 <Flex>
-                  <Link>
+                  <Link to="/addtocart">
                     <BsCart4 />
                   </Link>
                 </Flex>
@@ -82,13 +82,15 @@ const Navbar = () => {
         </Box>
         <Box borderTop="1px solid gray" h="100px">
           <Flex justifyContent="space-around"mt="5">
-            <Image
+           <Link to="/">
+           <Image
               mt="3"
              
-              w="10%"
+              w="100%"
               src="https://cdn-fsly.yottaa.net/578855e22bb0ac10350002d6/www.carters.com/v~4b.282/on/demandware.static/Sites-Carters-Site/-/default/dw8584e164/images/logo-carters.svg?yocs=4G_"
               alt=""
             />
+           </Link>
             <HStack spacing={12} className={styles.primary3} >
               <Box >
                 <Text>Baby</Text>
