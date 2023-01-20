@@ -123,7 +123,7 @@ const Navbar = () => {
               </Text>
             </HStack>
            <Box >
-           <InputGroup borderRadius="20px" >
+           <InputGroup  borderRadius="20px"  border="0.5px solid grey" >
             <Input placeholder="Find Your Product" htmlSize={6} width={'220px'} />
             <InputRightAddon children={<BiSearchAlt/>} bg="none" />
             </InputGroup>
