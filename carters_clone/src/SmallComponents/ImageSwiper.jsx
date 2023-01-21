@@ -32,6 +32,7 @@ const ImageSwiper = () => {
         slidesPerView={4}
         navigation
         slidesPerGroup={2}
+
         pagination={{ clickable: true }}
         scrollbar={{ draggable: true }}
         onSwiper={(swiper) => console.log(swiper)}

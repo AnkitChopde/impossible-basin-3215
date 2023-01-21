@@ -33,6 +33,7 @@ import below3 from "../Images&Logos/below3.png"
 import below4 from "../Images&Logos/below4.png"
 import ImageSwiper from "../SmallComponents/ImageSwiper";
 import Carousal from "../SmallComponents/Carousal";
+import { Link } from "react-router-dom";
 
 const images = [kid1, kid2, kid3, kid4, kid5, kid6];
 const BelowNavbar = () => {
@@ -93,7 +94,7 @@ const BelowNavbar = () => {
           <GridItem>
           <VStack>
           <Avatar size="4xl" name="" src={images[1]} />
-            <Text textDecoration="underline">BABY BOY</Text>
+            <Link to="/products"><Text textDecoration="underline">BABY BOY</Text></Link>
           </VStack>
           </GridItem>
           <GridItem>
