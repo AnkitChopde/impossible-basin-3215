@@ -6,6 +6,7 @@ import OrdersPage from '../Pages/OrdersPage'
 import SignUpPage from '../Pages/SignUpPage'
 import {Routes,Route} from "react-router-dom"
 import ProductsPage from '../Pages/ProductsPage'
+import SingleProductPage from '../Pages/SingleProductPage'
 const AllRoutes = () => {
   return (
    <Routes>
@@ -14,6 +15,7 @@ const AllRoutes = () => {
     <Route  path="/orders" element={<OrdersPage/>}/>
     <Route  path="/hearts" element={<HeartPage/>}/>
     <Route  path="/products" element={<ProductsPage/>}/>
+    <Route  path="/products/:id" element={<SingleProductPage/>}/>
     <Route  path="/addtocart" element={<AddToCart/>}/>
    
    </Routes>
