@@ -1,28 +1,14 @@
 import React from 'react'
 import Filter from './filter'
-import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box,} from "@chakra-ui/react";
+import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box, Text,} from "@chakra-ui/react";
 import styles from "./Sidebar.module.css"
-const Sidebar = ({title}) => {
+const Sidebar = () => {
   return (
   
-        <Box mt="12px" border="1px solid grey" borderRight="8px solid grey " width="15%">
+        <Box mt="-3" border="1px solid grey" borderRight="8px solid grey " width="15%">
           <Accordion allowMultiple  className={styles.posi} >
-            <AccordionItem>
-              <h2>
-                <AccordionButton>
-                  <Box as="span" flex="1" textAlign="left">
-                  Age
-                  </Box>
-                  <AccordionIcon />
-                </AccordionButton>
-              </h2>
-              <AccordionPanel pb={4} spacing={"3"}>
-               <Filter title="Baby" num="50"/>
-               <Filter title="Baby" num="50"/>
-               <Filter title="Baby" num="50"/>
-               <Filter title="Baby" num="50"/>
-              </AccordionPanel>
-            </AccordionItem>
+            <Text py="2" fontSize="20px">Filters</Text>
+
             <AccordionItem>
               <h2>
                 <AccordionButton>
