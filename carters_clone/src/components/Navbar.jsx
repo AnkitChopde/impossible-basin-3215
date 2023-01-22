@@ -26,6 +26,7 @@ const Navbar = () => {
         <Box  h="36px" bg={"RGBA(0, 0, 0, 0.04)"}>
           <Flex>
             <Box>
+              
               <HStack spacing={2} ml="10px">
                 <Image
                   w="70px"
