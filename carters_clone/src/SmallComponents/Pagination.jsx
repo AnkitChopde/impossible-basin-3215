@@ -1,17 +1,19 @@
-function Pagination({page,onChange,total}) {
+import { Box, Button } from "@chakra-ui/react";
 
-    const btnArr = new Array(total).fill(0)
-     
+function Pagination({page,onChange,total}) {
+  
+    const prev = <Button bg="#00A9E0" color="#FFFFFF" mr="7" isDisabled={page===1} onClick={()=>onChange(page-1)}>Previous</Button>
+    const btnArr = new Array(total).fill(0).map((a,i)=>
+    <Button  my="2"  mx="1" onClick={()=>onChange(i+1)} color={page===i+1&&"#FFFFFF"} borderRadius={page===i+1&&"50%"} bg={page===i+1&&"#00A9E0"}>{i+1}</Button>
+    )
+    const Next = <Button bg="#00A9E0" color="#FFFFFF"  ml="7" isDisabled={page===total} onClick={()=>onChange(page+1)}>Next</Button>
      return (
      <div>
-          {btnArr.map((ele,i)=>{
-           return (
-             <button key={i+Math.random()}
-             onClick={()=>onChange(i+1)}
-             style={{padding:"0.5rem",
-           margin:"0.5rem",borderRadius:"5px"}}>{i+1}</button>
-           )
-          })}
+         <Box >
+         {prev}
+         {btnArr}
+         {Next}
+         </Box>
      </div>
     
      );

@@ -92,7 +92,7 @@ const Navbar = () => {
             />
            </Link>
             <HStack spacing={12} className={styles.primary3} >
-              <Box >
+              <Box border="1px solid red" >
                 <Text>Baby</Text>
                 <p className={styles.primary2}>Preemie - 24M</p>
               </Box>
