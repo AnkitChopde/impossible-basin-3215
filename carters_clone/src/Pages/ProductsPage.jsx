@@ -20,27 +20,49 @@ import Navbar from "../components/Navbar";
 
 import { ChevronRightIcon } from "@chakra-ui/icons";
 import Sidebar from "../SmallComponents/Sidebar";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
 import ImageSlider from "../SmallComponents/ImageSlider";
 import ProductSimple from "../SmallComponents/CardPage";
 import Pagination from "../SmallComponents/Pagination";
 
+const getPageFromUrl = (value)=>{
+  value=Number(value);
+
+  if(typeof value==="number" && value<=0){
+     value=1;
+  }
+  if(!value){
+    value=1;
+  }
+
+  return value;
+
+}
+
 
 const getData = (order,page) => {
- 
-  return fetch(`http://localhost:8080/products?_limit=16&_page=${page}&_sort=price&_order=${order}`).then((res) => res.json());
+ let limit=12
+  return fetch(`http://localhost:8080/products?_page=${page}&_limit=${limit}&_sort=price&_order=${order}`).then((res) => res.json());
 };
 const ProductsPage = () => {
   const [data, setData] = useState([]);
+  const [searchParams,setSearchParams] = useSearchParams()
+
+  let initPage =getPageFromUrl(searchParams.get("page")) || 1 
+
   const [loading, setLoading] = useState(false);
   const [order,setOrder] = useState("asc");
-  const [page,setPage] = useState(1)
-  let limit=16;
-  let total=Math.floor(data.length/limit)
+  const [page,setPage] = useState(initPage)
+
   useEffect(() => {
     fetchAndUpdate();
   }, [order,page]);
+
+  useEffect(()=>{
+    let paramsObj = {page}
+    setSearchParams(paramsObj)
+  },[page])
 
   const fetchAndUpdate = async () => {
     setLoading(true);
@@ -54,12 +76,6 @@ const ProductsPage = () => {
       console.log(err);
     }
   };
-
-  const onChange=(val)=>{
-    setPage(val)
-  }
-   
-
 
   return (
     <div>
@@ -135,7 +151,7 @@ const ProductsPage = () => {
               ))}
               </Grid>
             </Box>
-            <Pagination page={page} onChange={onChange} total={total}/>
+            <Pagination page={page} onChange={(val)=>setPage(val)} total={Math.ceil(50/12)}/>
           </VStack>
         </Flex>
       </Box>
