@@ -3,7 +3,6 @@ import {
     Box,
     Center,
     useColorModeValue,
-    Heading,
     Text,
     Stack,
     Image,
@@ -11,8 +10,7 @@ import {
     Icon,
     Tooltip,
     chakra,
-    HStack,
-    VStack
+   
   } from '@chakra-ui/react';
 import { FiHeart } from 'react-icons/fi';
   
@@ -79,18 +77,12 @@ import { FiHeart } from 'react-icons/fi';
               isTruncated>
             {desc}
             </Text>
-            <Stack direction={'row'} align={'center'}>
-              <HStack spacing={"0"}>
-              <Text fontWeight={800} fontSize={'xl'} >
-                $ 
+            <Stack direction={'row'} align={'center'}>           
+              <Text fontWeight={800} color="#444444" fontSize={'18px'} >
+                ${price}
               </Text>
-              <Text ml={"-3"}>{price}</Text>
-              </HStack>
-              <Text textDecoration={'line-through'} color={'gray.600'}  fontSize={'xl'} >
-                $ 
-              </Text>
-              <Text textDecoration={'line-through'} color={'gray.600'}>
-                {cprice}
+              <Text textDecoration={'line-through'} color="#444444" fontSize={'11'} >
+                $ {cprice}
               </Text>
             </Stack>
           </Stack>
