@@ -17,6 +17,7 @@ import {BiSearchAlt} from "react-icons/bi"
 import { Link } from "react-router-dom";
 import styles from "./Navbar.module.css";
 import { FiHeart } from "react-icons/fi";
+import logo from "../Images&Logos/logo.png"
 import { RxCodesandboxLogo } from "react-icons/rx";
 import { BsCart4 } from "react-icons/bs";
 const Navbar = () => {
@@ -84,10 +85,10 @@ const Navbar = () => {
           <Flex justifyContent="space-around"mt="5">
            <Link to="/">
            <Image
-              mt="3"
+              
              
-              w="100%"
-              src="https://cdn-fsly.yottaa.net/578855e22bb0ac10350002d6/www.carters.com/v~4b.282/on/demandware.static/Sites-Carters-Site/-/default/dw8584e164/images/logo-carters.svg?yocs=4G_"
+              w="55%"
+              src={logo}
               alt=""
             />
            </Link>
