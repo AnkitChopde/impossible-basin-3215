@@ -3,9 +3,9 @@
 # DECOR DASH
 
 
-E-commerce Website for FurnitureE-commerce Website for Furniture
+E-commerce Website for Children's related products
 
-This is an e-commerce website for furniture, where users can buy different types of furniture. The website is built using React.js, Redux, Node.js, Express and MongoDB.
+This is an e-commerce website where users can buy different types of children's related products. The website is built using React.js, Html, Css, JavaScript, Chakra UI.
 
 
 <p id="description">DECOR DASH -This is an e-commerce website for furniture, where users can buy different types of furniture. The website is built using React.js, Redux, Node.js, Express and MongoDB.
