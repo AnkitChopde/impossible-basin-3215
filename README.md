@@ -1,5 +1,5 @@
 
-<img width="400" align="right" alt="Decor Dash_logo" src="https://user-images.githubusercontent.com/103588575/229435006-1d77bb6c-fb2e-4080-9786-d89fc73d57f9.png">
+<img width="400" align="right" alt="Little_cart_logo" src="![logo](https://github.com/RitikSingh11661/noble-weather-6049/assets/112820279/0b97b369-bf0a-4775-9656-ec80d871d3e3)">
 
 # LITTLE CART
 
