@@ -27,18 +27,22 @@ import {
 import axios from "axios";
 import { MdLocalShipping } from "react-icons/md";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 function SingleProductPage() {
   const [product, setProduct] = useState({});
   const { id } = useParams();
+  const [cart,setCart] = useState([]);
+
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/products/${id}`)
+      .get(`https://carters-server.onrender.com/products/${id}`)
       .then((res) => setProduct(res.data))
       .catch((err) => console.log(err));
   }, [id]);
+
+
 
   const { image, desc, crossPrice, price, name, brand } = product;
   return (
@@ -102,7 +106,8 @@ function SingleProductPage() {
                   time or anytime!
                 </Text>
               </VStack>
-              <Button
+             <Link to="/addtocart">
+             <Button
                 rounded={"none"}
                 w={"full"}
                 mt={8}
@@ -118,6 +123,7 @@ function SingleProductPage() {
               >
                 Add to cart
               </Button>
+             </Link>
               <Box>
                 <Text
                   fontSize={{ base: "16px", lg: "18px" }}

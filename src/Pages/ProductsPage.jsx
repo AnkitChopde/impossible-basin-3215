@@ -35,15 +35,11 @@ const getPageFromUrl = (value)=>{
   if(!value){
     value=1;
   }
-
   return value;
-
 }
-
-
 const getData = (order,page) => {
  let limit=12
-  return fetch(`http://localhost:8080/products?_page=${page}&_limit=${limit}&_sort=price&_order=${order}`).then((res) => res.json());
+  return fetch(`https://carters-server.onrender.com/products?_page=${page}&_limit=${limit}&_sort=price&_order=${order}`).then((res) => res.json());
 };
 const ProductsPage = () => {
   const [data, setData] = useState([]);
@@ -141,12 +137,13 @@ const ProductsPage = () => {
                
                 {data.map((prod)=>(
                 <Link to={`/products/${prod.id}`}>
+                  <Skeleton isLoaded={!loading}>
                 <GridItem key={prod.id}>
-                   <Skeleton isLoaded={!loading}>
+                   
                    <ProductSimple image={prod.image} desc={prod.desc}
-                  name={prod.name} brand={prod.brand} price={prod.price} cprice={prod.crossPrice}/>
-                   </Skeleton>           
+                  name={prod.name} brand={prod.brand} price={prod.price} cprice={prod.crossPrice}/>    
                 </GridItem>
+                </Skeleton>       
                 </Link>
               ))}
               </Grid>

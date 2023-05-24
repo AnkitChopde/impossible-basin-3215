@@ -1,16 +1,14 @@
-
+import { Box, Button, Center, Flex, HStack, Image, Text, VStack } from '@chakra-ui/react'
 import React from 'react'
+import {Link} from "react-router-dom"
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
-import { Box, Button, Center, Flex, HStack, Image, Text, VStack } from '@chakra-ui/react'
 
-import {Link} from "react-router-dom"
-const OrdersPage = () => {
+const EmptyCart = () => {
   return (
     <div>
-      <Navbar/>
-      <Box w="70%" height="500px">
-  <Box>
+      
+        <Box>
       <Box h="60px" boxShadow="md">
          <Center>
          <HStack  mt="25px" >
@@ -56,11 +54,9 @@ const OrdersPage = () => {
          </Box>
       </Box>
       </Box>
-      </Box>
-
-      <Footer/>
+       
     </div>
   )
 }
 
-export default OrdersPage
+export default EmptyCart

@@ -7,6 +7,7 @@ import Navbar from '../components/Navbar'
 
 import ProductSimple from '../SmallComponents/CardPage'
 import Carousal from '../SmallComponents/Carousal'
+import EmptyCart from '../SmallComponents/EmptyCart'
 import ImageSlider from '../SmallComponents/ImageSlider'
 import ImageSwiper from '../SmallComponents/ImageSwiper'
 import SliderCard from '../SmallComponents/SliderCard'
@@ -15,12 +16,12 @@ const Homepage = () => {
     <div>
 
       {/* <ProductSimple/> */}
+      <Navbar/>
       
+      <BelowNavbar/>
+         <Footer/>
    
-       <Navbar/>
-      
-     <BelowNavbar/>
-        <Footer/>
+     
        
     </div>
   )

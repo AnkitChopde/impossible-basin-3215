@@ -93,10 +93,12 @@ const Navbar = () => {
             />
            </Link>
             <HStack spacing={12} className={styles.primary3} >
+              <Link to="/products">
               <Box  >
                 <Text>Baby</Text>
                 <p className={styles.primary2}>Preemie - 24M</p>
               </Box>
+              </Link>
               <Box>
                 {" "}
                 <Text>Toddler</Text>
