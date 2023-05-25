@@ -1,7 +1,8 @@
 
+<div > <p># LITTLE CART</p>
 ![logo](https://github.com/AnkitChopde/impossible-basin-3215/assets/112820279/9efcc67b-9563-4eab-8c02-fa6476ba20a6)
 
-# LITTLE CART
+</div>
 
 
 E-commerce Website for Children's related products
