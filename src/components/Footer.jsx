@@ -29,8 +29,8 @@ const ListHeader = ({ children }) => {
 const Footer = () => {
   return (
     <div>
-      <Box height="690px" >
-        <HStack h="500px" bg={"RGBA(0, 0, 0, 0.04)"} borderTop="1px solid grey">
+      <Box >
+        <HStack bg={"RGBA(0, 0, 0, 0.04)"} borderTop="1px solid grey">
           <Box w="50%" h="100%" pl={"4"}>
             <Container as={Stack} maxW={"6xl"} py={6}>
               <SimpleGrid
@@ -118,7 +118,7 @@ const Footer = () => {
                   />
                 </WrapItem>
               </Wrap></Box>
-              <HStack className={styles.primary} fontSize={"14px"}>
+              <HStack className={styles.primary} display={{base:"none",md:"none",lg:"flex"}}  fontSize={"14px"} w="100%">
                 <p>Ship To: </p>
                 <img width="30px" src="data:image/png;base64,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" alt=""/>
                 <p>United States | <span style={{cursor:"pointer", textDecoration:"underline"}}>Change</span>
@@ -130,7 +130,7 @@ const Footer = () => {
         </HStack>
         <Box borderBottom="1px solid grey" bg={"RGBA(0, 0, 0, 0.04)"} textAlign="right" pb={"10px"} >
           <Text mr="2.5%" className={styles.primary}>© 2023 LittleCart's, Inc. All rights reserved.</Text>
-          <HStack className={styles.secondary} ml={"30.5%"}>
+          <HStack className={styles.secondary} display={{base:"none",md:"none",lg:"flex"}} ml={"30.5%"}>
             <p>Google Ad Price Policy |</p>
             <p>Terms and Conditions |</p>
             <p>Privacy Statements |</p>
@@ -143,7 +143,7 @@ const Footer = () => {
             <p>Accessibility.</p>
           </HStack>
         </Box>
-        <Box textAlign="left" ml="3" w="90%" lineHeight="8" className={styles.primary}>
+        <Box textAlign="left" ml="3" display={{base:"none",md:"none",lg:"block"}} w="90%" lineHeight="8" className={styles.primary}>
          <Text>*EXCLUSIONS AND DISCLAIMERS.</Text>
          <Text>UP TO 50% OFF: Savings based on MSRP. Excludes Select New Arrivals, LITTLE PLANET®, Sneak Peek, Treasure Box, Licensed Styles, SKIP HOP®, Doorbusters, and Clearance. Other exclusions may apply.</Text>
          <Text>UP TO 70% OFF CLEARANCE: Savings based on MSRP.</Text>

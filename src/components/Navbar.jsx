@@ -11,7 +11,24 @@ import {
   Input,
   InputGroup,
   InputRightAddon,
+  useDisclosure,
+  IconButton,
+  Drawer,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+  DrawerHeader,
+  DrawerBody,
+  Accordion,
+  AccordionItem,
+  AccordionIcon,
+  AccordionPanel,
+  AccordionButton,
 } from "@chakra-ui/react";
+import {
+  HamburgerIcon,
+  CloseIcon,
+} from '@chakra-ui/icons'
 import { GrUserManager } from "react-icons/gr";
 import {BiSearchAlt} from "react-icons/bi"
 import { Link } from "react-router-dom";
@@ -21,16 +38,17 @@ import logo from "../Images&Logos/logo.png"
 import { RxCodesandboxLogo } from "react-icons/rx";
 import { BsCart4 } from "react-icons/bs";
 const Navbar = () => {
+  const { isOpen, onToggle ,onOpen, onClose} = useDisclosure()
   return (
     <div>
       <Box h="170px">
-        <Box  h="36px" bg={"RGBA(0, 0, 0, 0.04)"}>
+        <Box  h="36px" display={{base:"none",sm:"none",md:"block",lg:"block"}} bg={"RGBA(0, 0, 0, 0.04)"}>
           <Flex>
             <Box>
               
               <HStack spacing={2} ml="10px">
                 <Image
-                  w="70px"
+                  w="4rem"
                   src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4SGwZKyBY_qwJ5zG-ZDBRu50MWdRaojwx9A&usqp=CAU"
                   alt=""
                 />
@@ -58,7 +76,7 @@ const Navbar = () => {
             </Box>
 
             <Spacer />
-            <Box w="20%">
+            <Box w={{base:"30%",md:"40%",lg:"20%"}}>
               <Flex mt={"6px"} spacing={4} justifyContent={"space-around"}>
                 <Flex>
                   <GrUserManager />
@@ -82,67 +100,265 @@ const Navbar = () => {
             </Box>
           </Flex>
         </Box>
-        <Box borderTop="1px solid gray" h="100px">
-          <Flex justifyContent="space-around"mt="5">
-           <Link to="/">
-           <Image
-              
-             
-              w="55%"
-              src={logo}
-              alt=""
-            />
-           </Link>
-            <HStack spacing={12} className={styles.primary3} >
-              <Link to="/products">
-              <Box  >
-                <Text>Baby</Text>
-                <p className={styles.primary2}>Preemie - 24M</p>
-              </Box>
-              </Link>
-              <Box>
-                {" "}
-                <Text>Toddler</Text>
-                <p className={styles.primary2}>5T - 2T</p>
-              </Box>
-              <Box>
-                {" "}
-                <Text>Kid</Text>
-                <p className={styles.primary2}>4 - 14</p>
-              </Box>
-              <Box>
-                {" "}
-                <Text mt="-6">Holidays</Text>
-               <p></p>
-              </Box>
-              <Text>
-                {" "}
-                <Text mt="-6">New & Popular</Text>
-                <p></p>
-              </Text>
-              <Text>
-                {" "}
-                <Text mt="-6">Sale</Text>
-               <p></p>
-              </Text>
-            </HStack>
-           <Box >
-           <InputGroup  borderRadius="20px"  border="0.5px solid grey" >
-            <Input placeholder="Find Your Product" htmlSize={6} width={'220px'} />
-            <InputRightAddon children={<BiSearchAlt/>} bg="none" />
-            </InputGroup>
-           </Box>
+        <Box borderTop="1px solid gray" h={{base:"4rem",md:"4rem",lg:"6rem"}}>
+        <Flex justifyContent="space-around" pt="2%">
+        <Flex
+          flex={{ base: 1, md: 'auto' }}
+          ml={{ base: -2 }}
+          display={{ base: 'flex', md: 'none' }}>
+          <IconButton
+            onClick={onToggle}
+            icon={
+              isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />
+            }
+            variant={'ghost'}
+            aria-label={'Toggle Navigation'}
+          />
           </Flex>
+          <DrawerComp Open={isOpen} Close={onClose}/>
+        <Link to="/" alignItems="center">
+           <Image
+               width={{base:"75%",md:"50%",lg:"50%"}}
+               src={logo}
+               alt="logo"
+               mt={{base:"0.3rem",sm:"-0.2rem",md:"-0.6rem",lg:"-0.3rem"}}
+          />
+           </Link>
+           <Flex alignItems="center" w="50%" display={{base:"none",md:"none",lg:"flex"}} justifyContent={"space-around"} spacing={12} className={styles.primary3} >
+               <Link to="/products">
+               <Box  >
+                 <Text>Baby</Text>
+                 <p className={styles.primary2}>Preemie - 24M</p>
+               </Box>
+               </Link>
+               <Box>
+                 {" "}
+                 <Text>Toddler</Text>
+                 <p className={styles.primary2}>5T - 2T</p>
+               </Box>
+               <Box>
+                 {" "}
+                 <Text>Kid</Text>
+                 <p className={styles.primary2}>4 - 14</p>
+               </Box>
+               <Box>
+                 {" "}
+                 <Text mt="-6">Holidays</Text>
+                <p></p>
+               </Box>
+               <Text>
+                 {" "}
+                <Text mt="-6">New & Popular</Text>
+                 <p></p>
+               </Text>
+               <Text>
+                 {" "}
+                 <Text mt="-6">Sale</Text>
+               <p></p>
+               </Text>
+             </Flex>
+             <Box w={{base:"100%",md:"20%",lg:"20%"}} mt={{base:"0.2rem",sm:"-0.2rem",md:"0rem",lg:"0rem"}} >
+            <InputGroup border="1px solid grey">
+             <Input placeholder="Search" htmlSize={6} />
+             <InputRightAddon children={<BiSearchAlt/>} bg="none" />
+             </InputGroup>
+            </Box>
+            
+        </Flex>
         </Box>
         <Box bg={"RGBA(0, 0, 0, 0.04)"} borderBottom="2px solid #00B5D8 " borderTop="1px solid gray" h="36px" fontWeight="bold">
-             <Center mt="5px" className={styles.head}>UP TO 50% OFF SPRING NEW ARRIVALS</Center>
-        </Box>
-        <Box bg={"RGBA(0, 0, 0, 0.04)"} h="10px">
+              <Center mt="5px" className={styles.head}>UP TO 50% OFF SPRING NEW ARRIVALS</Center>
+         </Box>
+         <Box bg={"RGBA(0, 0, 0, 0.04)"} h="10px">
 
-        </Box>
+         </Box>
       </Box>
     </div>
   );
 };
 
 export default Navbar;
+
+const DrawerComp = ({Open,Close})=>{
+  const firstField = React.useRef()
+  return(
+    <Drawer
+        isOpen={Open}
+        placement='left'
+        h="100%"
+        initialFocusRef={firstField}
+        onClose={Close}
+      >
+        <DrawerOverlay />
+        <DrawerContent>
+          <DrawerCloseButton />
+          <Box mt="-3" border="1px solid grey" width="100%">
+          <Accordion allowMultiple  className={styles.posi} >
+            <Text py="2" fontSize="20px">Filters</Text>
+
+            <AccordionItem>
+              <h2>
+                <AccordionButton>
+                  <Box as="span" flex="1" textAlign="left">
+                    Clothing Size
+                  </Box>
+                  <AccordionIcon />
+                </AccordionButton>
+              </h2>
+            </AccordionItem>
+            <AccordionItem>
+              <h2>
+                <AccordionButton>
+                  <Box as="span" flex="1" textAlign="left">
+                    Shoe Size
+                  </Box>
+                  <AccordionIcon />
+                </AccordionButton>
+              </h2>
+              <AccordionPanel pb={4} spacing={"3"}>
+              </AccordionPanel>
+            </AccordionItem>
+            <AccordionItem>
+              <h2>
+                <AccordionButton>
+                  <Box as="span" flex="1" textAlign="left">
+                    Shop Deals
+                  </Box>
+                  <AccordionIcon />
+                </AccordionButton>
+              </h2>
+              <AccordionPanel pb={4} spacing={"3"}>
+              </AccordionPanel>
+            </AccordionItem>
+            <AccordionItem>
+              <h2>
+                <AccordionButton>
+                  <Box as="span" flex="1" textAlign="left">
+                   Category
+                  </Box>
+                  <AccordionIcon />
+                </AccordionButton>
+              </h2>
+              <AccordionPanel pb={4} spacing={"3"}>
+            
+              </AccordionPanel>
+            </AccordionItem>
+            <AccordionItem>
+              <h2>
+                <AccordionButton>
+                  <Box as="span" flex="1" textAlign="left">
+                   Style
+                  </Box>
+                  <AccordionIcon />
+                </AccordionButton>
+              </h2>
+              <AccordionPanel pb={4} spacing={"3"}>
+              
+              </AccordionPanel>
+            </AccordionItem>
+            <AccordionItem>
+              <h2>
+                <AccordionButton>
+                  <Box as="span" flex="1" textAlign="left">
+                    Sleeve Length
+                  </Box>
+                  <AccordionIcon />
+                </AccordionButton>
+              </h2>
+              <AccordionPanel pb={4} spacing={"3"}>
+              
+              </AccordionPanel>
+            </AccordionItem>
+            <AccordionItem>
+              <h2>
+                <AccordionButton>
+                  <Box as="span" flex="1" textAlign="left">
+                    Brand
+                  </Box>
+                  <AccordionIcon />
+                </AccordionButton>
+              </h2>
+              <AccordionPanel pb={4} spacing={"3"}>
+              
+              </AccordionPanel>
+            </AccordionItem>
+            <AccordionItem>
+              <h2>
+                <AccordionButton>
+                  <Box as="span" flex="1" textAlign="left">
+                   % Off MSRP 
+                  </Box>
+                  <AccordionIcon />
+                </AccordionButton>
+              </h2>
+              <AccordionPanel pb={4} spacing={"3"}>
+               
+              </AccordionPanel>
+            </AccordionItem>
+   
+          </Accordion>
+        </Box>
+        </DrawerContent>
+      </Drawer>
+    
+  )
+}
+
+// <Box borderTop="1px solid gray" h="100px">
+//           <Flex justifyContent="space-around"mt="5">
+//            <Link to="/">
+//            <Image
+              
+             
+//               w="55%"
+//               src={logo}
+//               alt=""
+//             />
+//            </Link>
+//             <HStack spacing={12} className={styles.primary3} >
+//               <Link to="/products">
+//               <Box  >
+//                 <Text>Baby</Text>
+//                 <p className={styles.primary2}>Preemie - 24M</p>
+//               </Box>
+//               </Link>
+//               <Box>
+//                 {" "}
+//                 <Text>Toddler</Text>
+//                 <p className={styles.primary2}>5T - 2T</p>
+//               </Box>
+//               <Box>
+//                 {" "}
+//                 <Text>Kid</Text>
+//                 <p className={styles.primary2}>4 - 14</p>
+//               </Box>
+//               <Box>
+//                 {" "}
+//                 <Text mt="-6">Holidays</Text>
+//                <p></p>
+//               </Box>
+//               <Text>
+//                 {" "}
+//                 <Text mt="-6">New & Popular</Text>
+//                 <p></p>
+//               </Text>
+//               <Text>
+//                 {" "}
+//                 <Text mt="-6">Sale</Text>
+//                <p></p>
+//               </Text>
+//             </HStack>
+//            <Box border="1px solid red" >
+//            <InputGroup border="1px solid grey" >
+//             <Input placeholder="Find Your Product" htmlSize={6} width={'30%'} />
+//             <InputRightAddon children={<BiSearchAlt/>} bg="none" />
+//             </InputGroup>
+//            </Box>
+//           </Flex>
+//         </Box>
+//         <Box bg={"RGBA(0, 0, 0, 0.04)"} borderBottom="2px solid #00B5D8 " borderTop="1px solid gray" h="36px" fontWeight="bold">
+//              <Center mt="5px" className={styles.head}>UP TO 50% OFF SPRING NEW ARRIVALS</Center>
+//         </Box>
+//         <Box bg={"RGBA(0, 0, 0, 0.04)"} h="10px">
+
+//         </Box>

@@ -18,7 +18,7 @@ const ImageSwiper = () => {
         // <Image src="https://cdn-fsly.yottaa.net/578855e22bb0ac10350002d6/o~f_webp/v~4b.283.0.0/https://images.dashhudson.com/aHR0cHM6Ly9jZG4uZGFzaGh1ZHNvbi5jb20vbWVkaWEvZnVsbC8xNjY5MjEyNzIxLjU2MjgzNjI3MDk3Mi5qcGVn.jpg?w=640&h=640&fit=cover" alt=""/>
         <div >
 
-        <Box  mt={["30px","20px","10px","-20px","-20px"]}>
+        <Box >
         <Box>
                 <Heading fontWeight="none" size="2xl"   color="#003057">show us how you</Heading>
                 <Heading size="xl" color="#00A9E0" mt="3">#lovecarters</Heading>

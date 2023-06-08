@@ -16,7 +16,7 @@ import Pic2 from "../Images&Logos/Pic2.png";
 export default function Carousal() {
   return (
     <>
-      <Box mt="12px">
+      <Box mt={{base:"-3.5rem",md:"-1.5rem",lg:"0.8rem"}} >
       <Swiper 
         spaceBetween={30}
         centeredSlides={true}

@@ -40,7 +40,7 @@ const BelowNavbar = () => {
   return (
     <div>
       <Carousal/>
-      <Box bg="#EDFDFD" h={["200px", "180px", "125PX", "150px", "120px"]}>
+      <Box bg="#EDFDFD" pb={{base:"2rem",md:"3rem",lg:"4rem"}}>
         <Center>
           <Grid
             templateColumns={[
@@ -74,7 +74,7 @@ const BelowNavbar = () => {
           </Grid>
         </Center>
       </Box>
-      <Box h={["380PX","180px","200px","220px","290px"]} mt="30px">
+      <Box  mt="1rem">
         <Grid
           templateColumns={[  
             "repeat(3, 1fr)",
@@ -83,7 +83,9 @@ const BelowNavbar = () => {
             "repeat(6, 1fr)",
           ]}
           gap={4}
+          pb={{base:"1rem",md:"1rem",lg:"1rem"}}
           mt={"20px"}
+          px="0.4rem"
         >
           <GridItem>
             <VStack>
@@ -125,7 +127,7 @@ const BelowNavbar = () => {
       </Box>
       <Image src={Pic1} alt="" />
       <Image mt={"20px"} src={Pic3} alt="" />
-      <Box h={["200px", "180px", "125PX", "150px", "120px"]}>
+      <Box py="1.5rem">
         <Center>
           <Grid
             templateColumns={[
@@ -160,13 +162,14 @@ const BelowNavbar = () => {
         </Center>
       </Box>
       <Image mt={"12px"} src={Holiday} alt="" />
-      <Box h={[ "150px", "120px"]}>
+      <Box >
         <Center>
           <Grid  m="auto" 
             templateColumns={[
               "repeat(2, 1fr)",
               "repeat(3, 1fr)",
             ]}
+            py={{base:"1.5rem",md:"1.5rem",lg:"1rem"}}
             gap={4}
             mt={"20px"}
           >
@@ -182,9 +185,9 @@ const BelowNavbar = () => {
           </Grid>
         </Center>
       </Box>
-      <Box h={["400PX","190px","255px","270px","350px"]} mt="10px">
+      <Box mt="10px">
        
-       <Heading color="#00A9E0" size="3xl">SHOP OUR FAVES</Heading>
+       <Heading color="#00A9E0" size={{base:"xl",md:"2xl",lg:"3xl"}}>SHOP OUR FAVES</Heading>
         <Grid
           templateColumns={[  
             "repeat(3, 1fr)",
@@ -194,6 +197,7 @@ const BelowNavbar = () => {
           ]}
           gap={4}
           mt={"40px"}
+          px="0.4rem"
         >
           <GridItem>
            
@@ -229,7 +233,7 @@ const BelowNavbar = () => {
           </GridItem>
         </Grid>
       </Box>
-      <Box h={["140px","160px","200px","300px"]} 
+      <Box
       mt={["5px"]}>
        
        
@@ -237,7 +241,7 @@ const BelowNavbar = () => {
           templateColumns={[   
             "repeat(4, 1fr)",
  ]}  
-          mt={["40px","20px","20px","60px"]}
+          mt={["2rem","1rem","1rem","4rem"]}
         >
      
           <GridItem>
