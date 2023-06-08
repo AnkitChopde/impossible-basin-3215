@@ -8,6 +8,7 @@ import {
   Center,
   Text,
   Stack,
+  VStack,
   Input,
   InputGroup,
   InputRightAddon,
@@ -24,6 +25,7 @@ import {
   AccordionIcon,
   AccordionPanel,
   AccordionButton,
+  Button
 } from "@chakra-ui/react";
 import {
   HamburgerIcon,
@@ -36,7 +38,7 @@ import styles from "./Navbar.module.css";
 import { FiHeart } from "react-icons/fi";
 import logo from "../Images&Logos/logo.png"
 import { RxCodesandboxLogo } from "react-icons/rx";
-import { BsCart4 } from "react-icons/bs";
+import { BsCart4,BsPhone } from "react-icons/bs";
 const Navbar = () => {
   const { isOpen, onToggle ,onOpen, onClose} = useDisclosure()
   return (
@@ -103,9 +105,9 @@ const Navbar = () => {
         <Box borderTop="1px solid gray" h={{base:"4rem",md:"4rem",lg:"6rem"}}>
         <Flex justifyContent="space-around" pt="2%">
         <Flex
-          flex={{ base: 1, md: 'auto' }}
-          ml={{ base: -2 }}
-          display={{ base: 'flex', md: 'none' }}>
+          flex={{ base: 1, md: '1',lg:"1" }}
+          ml={{ base: -2,md:"10" }}
+          display={{ base: 'flex', md: 'flex',lg:"none" }}>
           <IconButton
             onClick={onToggle}
             icon={
@@ -192,15 +194,15 @@ const DrawerComp = ({Open,Close})=>{
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
-          <Box mt="-3" border="1px solid grey" width="100%">
+          <Box mt="10"width="100%">
           <Accordion allowMultiple  className={styles.posi} >
-            <Text py="2" fontSize="20px">Filters</Text>
-
             <AccordionItem>
               <h2>
                 <AccordionButton>
                   <Box as="span" flex="1" textAlign="left">
-                    Clothing Size
+                    Baby <span style={{fontSize:"0.6rem"}}>
+                      PREEMIE - 24M
+                    </span>
                   </Box>
                   <AccordionIcon />
                 </AccordionButton>
@@ -210,19 +212,9 @@ const DrawerComp = ({Open,Close})=>{
               <h2>
                 <AccordionButton>
                   <Box as="span" flex="1" textAlign="left">
-                    Shoe Size
-                  </Box>
-                  <AccordionIcon />
-                </AccordionButton>
-              </h2>
-              <AccordionPanel pb={4} spacing={"3"}>
-              </AccordionPanel>
-            </AccordionItem>
-            <AccordionItem>
-              <h2>
-                <AccordionButton>
-                  <Box as="span" flex="1" textAlign="left">
-                    Shop Deals
+                  Baby <span style={{fontSize:"0.6rem"}}>
+                      2T - 5T
+                    </span>
                   </Box>
                   <AccordionIcon />
                 </AccordionButton>
@@ -234,7 +226,21 @@ const DrawerComp = ({Open,Close})=>{
               <h2>
                 <AccordionButton>
                   <Box as="span" flex="1" textAlign="left">
-                   Category
+                  Baby <span style={{fontSize:"0.6rem"}}>
+                      4 - 14
+                    </span>
+                  </Box>
+                  <AccordionIcon />
+                </AccordionButton>
+              </h2>
+              <AccordionPanel pb={4} spacing={"3"}>
+              </AccordionPanel>
+            </AccordionItem>
+            <AccordionItem>
+              <h2>
+                <AccordionButton>
+                  <Box as="span" flex="1" textAlign="left">
+                  Shoes
                   </Box>
                   <AccordionIcon />
                 </AccordionButton>
@@ -247,7 +253,7 @@ const DrawerComp = ({Open,Close})=>{
               <h2>
                 <AccordionButton>
                   <Box as="span" flex="1" textAlign="left">
-                   Style
+                  New & Popular
                   </Box>
                   <AccordionIcon />
                 </AccordionButton>
@@ -260,43 +266,51 @@ const DrawerComp = ({Open,Close})=>{
               <h2>
                 <AccordionButton>
                   <Box as="span" flex="1" textAlign="left">
-                    Sleeve Length
+                    Sale
                   </Box>
                   <AccordionIcon />
                 </AccordionButton>
               </h2>
               <AccordionPanel pb={4} spacing={"3"}>
               
-              </AccordionPanel>
-            </AccordionItem>
-            <AccordionItem>
-              <h2>
-                <AccordionButton>
-                  <Box as="span" flex="1" textAlign="left">
-                    Brand
-                  </Box>
-                  <AccordionIcon />
-                </AccordionButton>
-              </h2>
-              <AccordionPanel pb={4} spacing={"3"}>
-              
-              </AccordionPanel>
-            </AccordionItem>
-            <AccordionItem>
-              <h2>
-                <AccordionButton>
-                  <Box as="span" flex="1" textAlign="left">
-                   % Off MSRP 
-                  </Box>
-                  <AccordionIcon />
-                </AccordionButton>
-              </h2>
-              <AccordionPanel pb={4} spacing={"3"}>
-               
               </AccordionPanel>
             </AccordionItem>
    
           </Accordion>
+          
+        </Box>
+        <Box>
+        <Box  my="3" fontSize={"0.7rem"} h="1.5rem">
+              <Center mt="5px" className={styles.head}>UP TO 50% OFF SPRING NEW ARRIVALS</Center>
+         </Box>
+         <hr/>
+         <HStack p="5" spacing={7}>
+            <Box>
+                <Text><span style={{color:"black",fontWeight:"bold",opacity:"0.6"}}>FREE</span> 1 Hour Pickup</Text>
+                <span style={{color:"#4299E1",textDecoration:"underline"}}>Choose Your Store</span>
+            </Box>
+            <Box>
+               <HStack>
+                <Box>
+                <BsPhone />
+                </Box>
+              
+                 <Box>
+                 <Text>Customer Service</Text>
+               <Text>(877) 333-0171</Text>
+                 </Box>
+              
+               </HStack>
+            </Box>
+         </HStack>
+         <HStack p="5" spacing={5}>
+         <Button leftIcon={<RxCodesandboxLogo />} px="2rem" colorScheme='teal' variant='outline'>
+    Orders
+  </Button>
+  <Button leftIcon={<FiHeart />} px="2rem" colorScheme='teal' variant='outline'>
+    Hearts
+  </Button>
+         </HStack>
         </Box>
         </DrawerContent>
       </Drawer>

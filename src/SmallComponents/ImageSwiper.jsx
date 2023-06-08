@@ -19,7 +19,7 @@ const ImageSwiper = () => {
         <div >
 
         <Box >
-        <Box>
+        <Box mt={{base:"1rem"}}>
                 <Heading fontWeight="none" size="2xl"   color="#003057">show us how you</Heading>
                 <Heading size="xl" color="#00A9E0" mt="3">#lovecarters</Heading>
                 <Heading fontWeight="none" mt="-2" size="lg"  color="#003057">And follow our new budding brand @LittlePlanet</Heading>

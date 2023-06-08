@@ -120,7 +120,7 @@ const ProductsPage = () => {
         </Box>
         <Flex>
           <Sidebar />
-          <VStack>
+          <VStack flex={"80%"}>
             <Center>
               <Box border="2px solid grey" borderRadius="10px">
                 <Select placeholder="Sort By | Featured" value={order} onChange={(e)=>setOrder(e.target.value)}>
@@ -133,20 +133,22 @@ const ProductsPage = () => {
               </Box>
             </Center>
             <Box>
-              <Grid templateColumns="repeat(4, 1fr)" gap={6}>
-               
-                {data.map((prod)=>(
-                <Link to={`/products/${prod.id}`}>
+              <Flex flexWrap={"wrap"} justifyContent="center" gap={2} rowGap={"-14"} >
+                    {
+                        data?.length > 0 &&
+                        data?.map((prod) => (
+                          <Link to={`/products/${prod.id}`}>
                   <Skeleton isLoaded={!loading}>
-                <GridItem key={prod.id}>
-                   
-                   <ProductSimple image={prod.image} desc={prod.desc}
-                  name={prod.name} brand={prod.brand} price={prod.price} cprice={prod.crossPrice}/>    
-                </GridItem>
+                  <Box key={prod.id}>
+                                 <ProductSimple image={prod.image} desc={prod.desc}
+                  name={prod.name} brand={prod.brand} price={prod.price} cprice={prod.crossPrice}/> 
+                            </Box>
                 </Skeleton>       
                 </Link>
-              ))}
-              </Grid>
+                      
+                        ))
+                    }
+                </Flex>
             </Box>
             <Pagination page={page} onChange={(val)=>setPage(val)} total={Math.ceil(50/12)}/>
           </VStack>

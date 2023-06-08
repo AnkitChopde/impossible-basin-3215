@@ -1,4 +1,4 @@
-import { Box, Button } from "@chakra-ui/react";
+import { Box, Button,Flex } from "@chakra-ui/react";
 
 function Pagination({page,onChange,total}) {
   
@@ -38,11 +38,13 @@ function Pagination({page,onChange,total}) {
     );
     return (
       <div>
-        <Box>
-          {prev}
+       <Box border="1px solid red" w={{base:"100%"}}>
+       <Flex gap={3} justifyContent={"center"}>
+        {prev}
           {btnArr}
           {Next}
-        </Box>
+    </Flex>
+       </Box>
       </div>
     );
    }

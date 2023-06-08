@@ -5,7 +5,7 @@ import styles from "./Sidebar.module.css"
 const Sidebar = () => {
   return (
   
-        <Box mt="-3" border="1px solid grey" borderRight="8px solid grey " width="15%">
+        <Box mt="-3" border="1px solid grey" borderRight="8px solid grey " display={{base:"none",md:"none",lg:"block"}} width="15%">
           <Accordion allowMultiple  className={styles.posi} >
             <Text py="2" fontSize="20px">Filters</Text>
 
