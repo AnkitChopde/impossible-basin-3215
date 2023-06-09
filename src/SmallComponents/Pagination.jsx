@@ -6,7 +6,7 @@ function Pagination({page,onChange,total}) {
       <Button
         bg="#00A9E0"
         color="#FFFFFF"
-        mr="7"
+        
         isDisabled={page === 1}
         onClick={() => onChange(page - 1)}
       >
@@ -16,7 +16,6 @@ function Pagination({page,onChange,total}) {
     const btnArr = new Array(total).fill(0).map((a, i) => (
       <Button
         my="2"
-        mx="1"
         onClick={() => onChange(i + 1)}
         color={page === i + 1 && "#FFFFFF"}
         borderRadius={page === i + 1 && "50%"}
@@ -29,7 +28,6 @@ function Pagination({page,onChange,total}) {
       <Button
         bg="#00A9E0"
         color="#FFFFFF"
-        ml="7"
         isDisabled={page === total}
         onClick={() => onChange(page + 1)}
       >
@@ -37,14 +35,24 @@ function Pagination({page,onChange,total}) {
       </Button>
     );
     return (
-      <div>
-       <Box border="1px solid red" w={{base:"100%"}}>
-       <Flex gap={3} justifyContent={"center"}>
-        {prev}
-          {btnArr}
-          {Next}
+      <div style={{marginBottom:"1rem",width:"90%"}}>
+    <Flex gap={3} justifyContent={"center"}>
+       {prev}
+        {'...'}
+        {Array(total).fill('')
+        .map((item, index) => {
+            return <Button colorScheme={page === index + 1 ? 'cyan' : 'gray'} borderRadius={page === index + 1&&"50%"}
+            onClick={() => onChange(index + 1)}
+             key={index}>{index + 1}</Button>
+        })
+        .filter((item, index) => {
+           if(index < page + 2 && index > page - 2 ) return true
+           return false
+        })
+        }
+        { "..."}
+        {Next}
     </Flex>
-       </Box>
       </div>
     );
    }

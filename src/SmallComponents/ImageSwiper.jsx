@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 // import Swiper core and required modules
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
@@ -13,6 +13,32 @@ import 'swiper/css';
 import { Box, Heading, Image } from '@chakra-ui/react';
 
 const ImageSwiper = () => {
+        const [slidesPerView, setSlidesPerView] = useState(4);
+
+  const handleResize = () => {
+    if (window.innerWidth >= 650 && window.innerWidth <= 868) {
+      setSlidesPerView(3);
+    }
+    if ( window.innerWidth >= 450 && window.innerWidth <= 650) {
+      setSlidesPerView(2);
+    }
+    
+    if(window.innerWidth >1100){
+      setSlidesPerView(4);
+    }
+     if(window.outerWidth < 450){
+      setSlidesPerView(1);
+    } 
+  };
+
+  // Add resize event listener on component mount
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
     return (
         
         // <Image src="https://cdn-fsly.yottaa.net/578855e22bb0ac10350002d6/o~f_webp/v~4b.283.0.0/https://images.dashhudson.com/aHR0cHM6Ly9jZG4uZGFzaGh1ZHNvbi5jb20vbWVkaWEvZnVsbC8xNjY5MjEyNzIxLjU2MjgzNjI3MDk3Mi5qcGVn.jpg?w=640&h=640&fit=cover" alt=""/>
@@ -29,7 +55,7 @@ const ImageSwiper = () => {
         modules={[Pagination, Navigation]}
 
         spaceBetween={5}
-        slidesPerView={4}
+        slidesPerView={slidesPerView}
         navigation
         slidesPerGroup={2}
 

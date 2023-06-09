@@ -1,4 +1,4 @@
-import { Box, Button, Checkbox, FormControl, Heading, HStack, Input,  Stack, Text, useColorModeValue } from "@chakra-ui/react";
+import { Box, Button, Checkbox, Flex, FormControl, Heading, HStack, Input,  Stack, Text, useColorModeValue } from "@chakra-ui/react";
 import React, { useContext, useEffect, useState } from "react";
 import { Form, Link, Navigate } from "react-router-dom";
 import Footer from "../components/Footer";
@@ -43,12 +43,12 @@ const SignInPage = () => {
     <div>
       <Navbar />
 
-      <Box  m="auto" mt="30px" width="60%" h="600px">
+      <Box  m="auto" mt={{base:"0.5rem",md:"1rem",lg:"2rem"}} width={{base:"90%",md:"80%",lg:"60%"}} h="600px">
         <Heading color="#444444" size="lg" textAlign="left">
           Hi, welcome back! 
         </Heading>
         
-        <HStack spacing="10" mt="40px">
+        <Flex gap="2rem" flexDirection={{base:"column",md:"row",lg:"row"}} justifyContent={"space-around"} mt="40px">
           <Input
             variant="flushed"
             boxShadow="lg"
@@ -69,7 +69,7 @@ const SignInPage = () => {
             type="password"
             placeholder="Password"
           />
-        </HStack>
+        </Flex>
         
         <Stack
           direction={{ base: "column", sm: "row" }}
@@ -87,10 +87,10 @@ const SignInPage = () => {
         <Button onClick={handleSubmit}
           rounded={"none"}
           borderRadius="10px"
-          w={"45%"}
+          w={{base:"100%",md:"50%",lg:"45%"}}
           mt={8}
           size={"lg"}
-          py={"5"}
+          py={"6"}
          bg="#00A9E0"
          color="white"
           textTransform={"uppercase"}
@@ -105,7 +105,9 @@ const SignInPage = () => {
           <i>New to our site or enrolled in My Rewarding Moments™ in store?</i>
         </Text>
         <Link to="/my-account">
-        <Button w="260px" h="40px" 
+        <Button w={{base:"98%",md:"40%",lg:"25%"}}
+        py={"6"}
+        
       bg="white"
       mt="20px"
        border=" 1px solid black"

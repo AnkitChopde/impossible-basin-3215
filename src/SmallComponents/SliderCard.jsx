@@ -22,7 +22,7 @@ import {
        >
          <Image p="5" pt="2"  borderBottom="2px dashed grey" src={src} alt=""/>
         <Center>
-        <HStack color="#444444" fontSize="xl" mt="2">
+        <HStack color="#444444" fontSize={{base:"sm",md:"md",lg:"lg"}} mt="2">
          <Text  >{title}</Text>
             <Text  opacity={"0.5"}>({num})</Text>
 

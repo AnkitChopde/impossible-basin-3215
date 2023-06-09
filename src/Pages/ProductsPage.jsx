@@ -76,7 +76,7 @@ const ProductsPage = () => {
   return (
     <div>
       <Navbar />
-      <Box h="40px" pt="8px" mt="12px" mx="4" bg="#00A8E1" color="#FFFFFF">
+      <Box h="40px" pt="8px" mt={{base:"-3rem",md:"0.5rem",lg:"0.8rem"}} mx="4" bg="#00A8E1" color="#FFFFFF">
         <Heading size="md">FAST & FREE: 1-HOUR PICKUP!</Heading>
       </Box>
 
@@ -104,7 +104,7 @@ const ProductsPage = () => {
           </BreadcrumbItem>
         </Breadcrumb>
       </Box>
-      <Box as="h1" mt="30px" textAlign="right" w="30%">
+      <Box as="h1" mt="30px" textAlign="right" w={{base:"100%",md:"30%",lg:"30%"}}>
         <VStack>
           <Heading fontWeight="none" color="#444444">
             Shop All Baby Items

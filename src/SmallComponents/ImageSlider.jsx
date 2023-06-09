@@ -8,16 +8,45 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import SliderCard from './SliderCard';
+import { useEffect, useState } from 'react';
 
 export default () => {
+  const [slidesPerView, setSlidesPerView] = useState(8);
+
+  const handleResize = () => {
+    if (window.innerWidth > 868 && window.innerWidth <= 1100) {
+      setSlidesPerView(6);
+    }
+    if (window.innerWidth >= 650 && window.innerWidth <= 868) {
+      setSlidesPerView(5);
+    }
+    if ( window.innerWidth >= 450 && window.innerWidth <= 650) {
+      setSlidesPerView(3);
+    }
+    
+    if(window.innerWidth >1100){
+      setSlidesPerView(8);
+    }
+     if(window.outerWidth < 450){
+      setSlidesPerView(2);
+    } 
+  };
+
+  // Add resize event listener on component mount
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
   return (
     <Swiper
       // install Swiper modules
       modules={[Navigation, Pagination, Scrollbar, A11y]}
       spaceBetween={10}
-      slidesPerView={8}
+      slidesPerView={slidesPerView}
       navigation
-      slidesPerGroup={4}
+      slidesPerGroup={3}
       
       onSwiper={(swiper) => console.log(swiper)}
       onSlideChange={() => console.log('slide change')}
