@@ -13,10 +13,12 @@ import "./carousal.css";
 import {EffectFade, Autoplay, Pagination, Navigation } from "swiper";
 import { Box, Image } from "@chakra-ui/react";
 import Pic2 from "../Images&Logos/Pic2.png";
+import { Link } from "react-router-dom";
 export default function Carousal() {
   return (
     <>
       <Box mt={{base:"-3.5rem",md:"-1.5rem",lg:"0.8rem"}} >
+      <Link to={"/products"}>
       <Swiper 
         spaceBetween={30}
         centeredSlides={true}
@@ -36,6 +38,7 @@ export default function Carousal() {
         <SwiperSlide><Image src="https://s7img.carters.com/is/image/carters/OKB_desktop_slot3_011723?&wid=1680" alt=""/></SwiperSlide>
         <SwiperSlide><Image src="https://s7img.carters.com/is/image/carters/LP_Q1_desktop_slot1_010523?&wid=1680" alt=""/></SwiperSlide>
       </Swiper>
+      </Link>
       </Box>
     </>
   );

@@ -53,24 +53,36 @@ const BelowNavbar = () => {
             gap={4}
             mt={"20px"}
           >
+            <Link to={"/products"}>
             <GridItem>
               <AllButton title="BABY GIRL" />
             </GridItem>
+            </Link>
+            <Link to={"/products"}>
             <GridItem>
               <AllButton title="BABY BOY" />
             </GridItem>
+            </Link>
+            <Link to={"/products"}>
             <GridItem>
               <AllButton title="TODDLER GIRL" />
             </GridItem>
+            </Link>
+            <Link to={"/products"}>
             <GridItem>
               <AllButton title="TODDLER BOY" />
             </GridItem>
+            </Link>
+            <Link to={"/products"}>
             <GridItem>
               <AllButton title="GIRL" />
             </GridItem>
+            </Link>
+            <Link to={"/products"}>
             <GridItem>
               <AllButton title="BOY" />
             </GridItem>
+            </Link>
           </Grid>
         </Center>
       </Box>
@@ -87,42 +99,54 @@ const BelowNavbar = () => {
           mt={"20px"}
           px="0.4rem"
         >
+          <Link to={"/products"}>
           <GridItem>
             <VStack>
               <Avatar size="4xl" name="" src={images[0]} />
               <Text textDecoration="underline">BABY GIRL</Text>
             </VStack>
           </GridItem>
+           </Link>
+           <Link to={"/products"}>
           <GridItem>
           <VStack>
           <Avatar size="4xl" name="" src={images[1]} />
             <Link to="/products"><Text textDecoration="underline">BABY BOY</Text></Link>
           </VStack>
           </GridItem>
+           </Link>
+           <Link to={"/products"}>
           <GridItem>
             <VStack>
             <Avatar size="4xl" name="" src={images[2]} />
             <Text textDecoration="underline">TODDLER GIRL</Text>
             </VStack>
           </GridItem>
+           </Link>
+           <Link to={"/products"}>
           <GridItem>
            <VStack>
            <Avatar size="4xl" name="" src={images[3]} />
             <Text textDecoration="underline">TODDLER BOY</Text>
            </VStack>
           </GridItem>
+           </Link>
+           <Link to={"/products"}>
           <GridItem>
            <VStack>
            <Avatar size="4xl" name="" src={images[4]} />
             <Text textDecoration="underline">KID GIRL</Text>
            </VStack>
           </GridItem>
+           </Link>
+           <Link to={"/products"}>
           <GridItem>
             <VStack>
             <Avatar size="4xl" name="" src={images[5]} />
             <Text textDecoration="underline">KID BOY</Text>
             </VStack>
           </GridItem>
+           </Link>
         </Grid>
       </Box>
       <Image src={Pic1} alt="" />
